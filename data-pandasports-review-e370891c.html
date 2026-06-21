@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 – 数据导向的稳定体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #1f2937;
+            background: #f9fafb;
+        }
+
+        /* 深色头图 / hero */
+        .hero {
+            background: #0b1120;
+            background-image: radial-gradient(ellipse at 30% 20%, #1f2b42 0%, #0b1120 70%);
+            color: #e6edf5;
+            padding: 4.5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent);
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto 1.2rem;
+            color: #b0c4de;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #8899b0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        section {
+            margin-bottom: 3.2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 0.85rem;
+            color: #111827;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 1.2rem 0 0.5rem;
+            color: #1e293b;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* 卡片区域 — 优势区 */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        .card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        /* 说明区 — 场景段落 */
+        .scenario-wrap {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .scenario-wrap p {
+            margin-bottom: 0.6rem;
+        }
+
+        /* FAQ 摘要 — 简洁折叠感 */
+        .faq-mini {
+            margin: 2rem 0 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #0f172a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+        }
+
+        .faq-answer {
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+            color: #475569;
+            padding-right: 1rem;
+        }
+
+        /* 底部 */
+        .footer-links {
+            border-top: 1px solid #d1d5db;
+            padding-top: 2rem;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2.5rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .footer-links a {
+            color: #3b82f6;
+            border-bottom: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+            .scenario-wrap {
+                padding: 1.2rem 1.2rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .advantages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO 区 -->
+    <header class="hero">
+        <h1>熊猫体育 · 稳定接入层</h1>
+        <p>以清晰的数据路径与可靠的服务结构，为日常信息浏览提供持续可用的页面入口。减少无效跳转，专注内容本身。</p>
+        <span class="sub">基于长期维护的页面体系 · 面向理性使用者</span>
+    </header>
+
+    <!-- 正文区 -->
+    <main class="content">
+
+        <!-- 简短介绍 + 核心链接 -->
+        <section>
+            <p>
+                当你需要快速定位到一个结构清晰、更新稳定的体育资讯页面时，<a href="https://data-pandasports.com">熊猫体育</a>提供了一条直接的访问路径。页面以信息层级为优先，避免冗余装饰，使浏览者能够把注意力集中在正文与数据上。
+            </p>
+            <p>
+                从域名解析到页面渲染，每个环节都经过基础层面的调优。对于经常查阅赛程、数据摘要或团队动态的用户而言，一个干净且响应迅速的页面意味着更少的等待与更明确的阅读节奏。
+            </p>
+        </section>
+
+        <!-- 优势区 (卡片) -->
+        <section>
+            <h2>为什么选择这个入口</h2>
+            <div class="advantages">
+                <div class="card">
+                    <div class="icon">📐</div>
+                    <h4>结构先于装饰</h4>
+                    <p>页面布局以内容层级为骨架，标题、段落、列表清晰区隔，便于快速定位信息块。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⚙️</div>
+                    <h4>较低的加载门槛</h4>
+                    <p>精简的样式与资源请求，使页面在多数网络环境下都能较快呈现完整内容。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🧭</div>
+                    <h4>一致的导航线索</h4>
+                    <p>核心链接与内部锚点保持稳定，减少因结构变动带来的认知摩擦。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔒</div>
+                    <h4>基础安全措施</h4>
+                    <p>采用现代 HTTPS 协议与服务器配置，降低中间拦截风险，保护浏览数据完整性。</p>
+                </div>
+            </div>
+            <p style="font-size:0.95rem; color:#4b5563; margin-top:0.5rem;">
+                以上特点围绕「减少操作歧义」展开，适合注重效率与安静浏览氛围的使用者。
+            </p>
+        </section>
+
+        <!-- 说明区 (场景化) -->
+        <section>
+            <h2>适用场景与页面说明</h2>
+            <div class="scenario-wrap">
+                <p><strong>日常查阅：</strong>当你想快速浏览当日要点，而不希望被弹窗或复杂菜单干扰时，可直接通过 <a href="https://data-pandasports.com">熊猫体育</a> 进入信息页面。内容以文字为主，辅以必要的结构化列表。</p>
+                <p><strong>信息比对：</strong>页面中关键数据以统一格式陈列，方便进行横向或纵向比较。无需在多个标签页之间反复切换来寻找上下文。</p>
+                <p><strong>长期书签：</strong>由于页面地址与基础结构保持相对稳定，你可以将其添加为书签，以备后续重复访问。每次打开看到的都是经过维护的最新内容。</p>
+                <p style="margin-bottom:0;"><strong>关于内容更新：</strong>页面信息会依照实际赛程或数据变动进行定期刷新，而非一次性静态页面。但更新频率以合理、克制为原则，避免过度推送。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 (3条) -->
+        <section class="faq-mini">
+            <h2>常见问题摘要</h2>
+            <div class="faq-item">
+                <div class="faq-question">‣ 这个页面与其它体育站点有什么不同？</div>
+                <div class="faq-answer">更强调内容的可读性与导航的直觉性。不依赖大图轮播或自动播放视频，而是把信息本身放在前面。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">‣ 移动设备上浏览体验如何？</div>
+                <div class="faq-answer">页面采用响应式设计，在手机和平板上会自动调整文字宽度与卡片排列，所有链接和按钮均适配触控操作。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">‣ 是否需要注册或登录才能查看内容？</div>
+                <div class="faq-answer">不需要。所有公开页面均可直接通过 <a href="https://data-pandasports.com">熊猫体育</a> 访问，无需任何账户或凭证。</div>
+            </div>
+            <p style="font-size:0.9rem; color:#6b7280; margin-top:1rem;">
+                如果你有其他疑问，可以通过站点底部提供的联系方式进行问询（页面内未嵌入第三方客服系统）。
+            </p>
+        </section>
+
+        <!-- 底部链接 -->
+        <footer class="footer-links">
+            <span><a href="https://data-pandasports.com">熊猫体育</a></span>
+            <span>关于页面结构</span>
+            <span>数据参考说明</span>
+            <span>隐私与安全</span>
+            <span>联系方式</span>
+        </footer>
+        <div class="footer-note">
+            © 2025 · 仅作为信息展示入口，不涉及博彩或非法内容引导。
+        </div>
+
+    </main>
+
+</body>
+</html>
