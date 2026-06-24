@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 持续探索的站点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2.4rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* 卡片容器 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+            padding: 2.2rem 2.6rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hero 区域 — 简洁文章标题 */
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            border-left: 5px solid #2563eb;
+            padding-left: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.3rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-meta span {
+            background: #f1f5f9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        .lead {
+            font-size: 1.12rem;
+            color: #334155;
+            border-bottom: 1px dashed #d1d9e6;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.6rem;
+        }
+
+        /* 正文段落 */
+        p {
+            margin-bottom: 1.3rem;
+            text-align: justify;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .quote-box {
+            background: #f8fafc;
+            border-left: 4px solid #94a3b8;
+            padding: 1.1rem 1.6rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #1e293b;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .quote-box strong {
+            color: #1e3a5f;
+        }
+
+        .inline-link {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        /* FAQ 摘要卡片风格 */
+        .faq-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .faq-item {
+            flex: 1 1 200px;
+            background: #f9fafc;
+            border: 1px solid #e6edf5;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+        }
+
+        .faq-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #0b1f33;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: #3b4b60;
+        }
+
+        .visit-note {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            background: #eef2f7;
+            border-radius: 40px;
+            padding: 0.6rem 1.6rem;
+            display: inline-block;
+            color: #1e293b;
+            border: 1px solid #d7dee9;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+            margin: 2rem 0 1.2rem;
+        }
+
+        .footer-note {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #7a8aa0;
+            margin-top: 1.6rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.4rem 0.8rem;
+            }
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 14px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+                padding-left: 0.9rem;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+            .faq-item {
+                flex: 1 1 100%;
+            }
+            .hero-meta {
+                flex-wrap: wrap;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .quote-box {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 卡片一：文章标题+导语 -->
+        <div class="card">
+            <div class="hero-title">再次打开，依然值得</div>
+            <div class="hero-meta">
+                <span>持续关注</span>
+                <span>信息整合</span>
+                <span>爱游戏</span>
+            </div>
+            <div class="lead">
+                一个聚合体育资讯与游戏内容的站点，并不追求瞬时的流量，而是依赖扎实的信息与克制的界面，让每次回访都获得清晰的价值。如果你曾将它加入书签，或只是偶然路过，以下内容或许能说明为何值得停留。
+            </div>
+
+            <p>
+                在信息过载的时期，我们更需要那些不依赖标题轰炸的站点。<a href="https://chinasport-igame.com" class="inline-link">爱游戏</a> 从设计之初就避免浮夸动效与强迫式推送，而是将体育数据、赛事解读、游戏评测与社区观点整理为结构化的段落。用户不需要反复刷新——内容的更新节奏更接近周刊而非秒级资讯流，这让注意力可以真正聚焦在阅读本身。
+            </p>
+
+            <p>
+                站内没有弹窗广告，没有自动播放的视频，也没有诱导分享的浮层。每个页面都保持浅灰背景与柔和卡片分区，字体、间距与边框都经过克制调整。如果你习惯同时打开多个标签页，会在切换时感受到一种稳定的秩序感——这也是许多回头客提到的体验。
+            </p>
+        </div>
+
+        <!-- 卡片二：多段正文 + 引用提示 -->
+        <div class="card">
+            <div class="section-label">· 从收藏到习惯</div>
+            <p>
+                收藏一个链接很容易，但持续回访需要理由。在 <strong>爱游戏</strong>，这个理由来自内容的可引用性：每篇赛事分析都附带数据来源与时间戳，每个游戏推荐都基于实际体验而非厂商通稿。你可以把某个段落直接引用到自己的笔记或讨论中，而不必担心信息失真。这种对细节的坚持，使得站点在体育与游戏交叉领域建立了微妙的信任感。
+            </p>
+
+            <div class="quote-box">
+                <strong>引用提示</strong> —— “之前在这里读到关于电竞训练体系的分析，三个月后再看，核心观点依然成立。很少有站点让我愿意把链接保留这么久。”<br>
+                <span style="display:block; margin-top:0.6rem; font-size:0.85rem; color:#5b6e85;">—— 来自站内用户的公开反馈</span>
+            </div>
+
+            <p>
+                从内容架构来看，站点划分了「赛事记录」「游戏拆解」「趋势观察」三大模块，每个模块下文章均带有标签与关联阅读。你不需要从头到尾浏览所有文章，而是通过关键词或时间线快速抵达感兴趣的部分。这种非线性的阅读路径，更适合那些想高效获取信息、同时保留深度阅读可能性的用户。
+            </p>
+
+            <p>
+                另外值得注意的是站点的更新声明：每篇文章末尾会标注“下次修订”的预估时间，如果数据或观点发生变化，编辑会以修订注的形式追加说明，而非悄悄修改原文。这种透明做法在中文网站中并不常见，但对于习惯做信息追踪的读者来说，非常实用。
+            </p>
+        </div>
+
+        <!-- 卡片三：FAQ 摘要 + 访问句 -->
+        <div class="card">
+            <div class="section-label">· 常见关注点</div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>内容分类是否清晰？</h4>
+                    <p>首页即展示近期文章卡片，顶部导航固定为三大板块，无冗余下拉菜单。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>移动端阅读体验如何？</h4>
+                    <p>采用完全响应式布局，细边框与柔和阴影在手机屏幕上保持干净。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>是否提供 RSS 或邮件订阅？</h4>
+                    <p>当前支持页面内“关注”按钮，后续会逐步开放轻量通知。</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <p>
+                如果你在寻找一个既包含体育深度、又融合游戏文化的长期阅读站点，不妨将 <a href="https://chinasport-igame.com" class="inline-link">爱游戏</a> 加入书签栏。它的价值不依赖首次访问的惊艳，而在于第二次、第三次打开时，依然能找到值得细读的内容。
+            </p>
+
+            <div class="visit-note">
+                ⚡ 下次访问时，可以试试从「趋势观察」板块开始。
+            </div>
+
+            <div class="footer-note">
+                持续更新 · 保持简洁
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
