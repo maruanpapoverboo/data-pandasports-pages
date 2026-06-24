@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f7f9;
+      color: #1b3b3a;
+      line-height: 1.7;
+      padding: 1.5rem;
+    }
+    .page {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #ffffffdf;
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      box-shadow: 0 12px 30px rgba(18, 84, 83, 0.08);
+      padding: 2.5rem 2rem;
+      border: 1px solid #cde7e7;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0d4f4e;
+      border-left: 5px solid #2f9b9a;
+      padding-left: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: #537c7b;
+      border-bottom: 1px dashed #b6d4d3;
+      padding-bottom: 1rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .article-meta span {
+      background: #e1f2f1;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+    }
+    .intro p {
+      font-size: 1.1rem;
+      background: #ecf6f6;
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+      border-left: 4px solid #2f9b9a;
+      color: #1a4d4c;
+    }
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 450;
+      color: #145c5b;
+      margin: 2rem 0 0.8rem 0;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: #2f9b9a;
+      border-radius: 10px;
+      margin-top: 4px;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: #f5fcfb;
+      padding: 1.3rem 1.2rem;
+      border-radius: 24px;
+      box-shadow: 0 2px 6px rgba(37, 109, 107, 0.05);
+      border: 1px solid #c2e3e2;
+      transition: 0.15s ease;
+    }
+    .card:hover {
+      background: #ebf8f7;
+      border-color: #2f9b9a;
+      box-shadow: 0 6px 14px rgba(34, 119, 117, 0.08);
+    }
+    .card h3 {
+      font-weight: 480;
+      font-size: 1.1rem;
+      color: #0b5a59;
+      margin-bottom: 0.4rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2c5d5c;
+    }
+    .quote-block {
+      background: #d9eeee;
+      border-radius: 30px;
+      padding: 1.4rem 2rem;
+      margin: 2rem 0 1.5rem 0;
+      font-style: normal;
+      border-left: 6px solid #2f9b9a;
+      color: #0b3d3c;
+      box-shadow: inset 0 1px 4px rgba(0,60,60,0.04);
+    }
+    .quote-block p {
+      font-weight: 380;
+      margin-bottom: 0.5rem;
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #2f6e6d;
+      font-style: normal;
+    }
+    .visit-sentence {
+      background: white;
+      padding: 1.2rem 1.6rem;
+      border-radius: 40px;
+      border: 1px solid #9ecfce;
+      margin: 2rem 0 1rem 0;
+      font-size: 1.08rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(44, 120, 118, 0.05);
+    }
+    .visit-sentence a {
+      color: #086b69;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #2f9b9a;
+      padding-bottom: 2px;
+      transition: 0.1s;
+    }
+    .visit-sentence a:hover {
+      background: #d5f0ef;
+      border-bottom-width: 4px;
+    }
+    .faq-mini {
+      margin-top: 2.5rem;
+      border-top: 1px solid #bfdddc;
+      padding-top: 1.8rem;
+    }
+    .faq-mini details {
+      background: #f1faf9;
+      border-radius: 30px;
+      padding: 0.8rem 1.4rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid #b7d6d5;
+    }
+    .faq-mini details[open] {
+      background: #e9f6f5;
+    }
+    .faq-mini summary {
+      font-weight: 470;
+      color: #105f5e;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem 0;
+      color: #1f5554;
+      font-size: 0.97rem;
+    }
+    .footer-note {
+      margin-top: 2.8rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #658b8a;
+      border-top: 1px solid #d2eae9;
+      padding-top: 1.8rem;
+    }
+    @media (max-width: 500px) {
+      .page {
+        padding: 1.8rem 1rem;
+        margin: 0.5rem auto;
+      }
+      h1 {
+        font-size: 1.8rem;
+        padding-left: 0.7rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+      .intro p {
+        padding: 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>爱游戏 · 简明指南</h1>
+    <div class="article-meta">
+      <span>阅读时间 约 5 分钟</span>
+      <span>信息类别 · 访问提醒</span>
+      <span>更新于 2025-06</span>
+    </div>
+
+    <div class="intro">
+      <p>对许多刚接触线上游戏信息的朋友来说，找到稳定、清晰的资讯入口是第一步。本文从实用角度梳理 <a href="https://chinanews-igame.com">爱游戏</a> 的可用方式与访问要点，帮助你快速了解其内容结构，同时留意浏览过程中的常见细节。</p>
+    </div>
+
+    <h2>内容定位与覆盖</h2>
+    <p>从页面布局来看，<strong>爱游戏</strong> 主要汇集了游戏动态、社区观察以及部分行业分析。它并非单一游戏的门户，而是提供多品类游戏新闻与轻解读。适合想浏览综合信息、偶尔查阅特定题材的读者。</p>
+
+    <div class="grid-cards">
+      <div class="card">
+        <h3>资讯聚合</h3>
+        <p>包含新游上线、版本更新、活动预告等，分类较细。</p>
+      </div>
+      <div class="card">
+        <h3>短文与测评</h3>
+        <p>部分文章聚焦玩法体验，篇幅适中，适合快速阅读。</p>
+      </div>
+      <div class="card">
+        <h3>专题整理</h3>
+        <p>特定主题或节假日内容会集中展示，方便一次性浏览。</p>
+      </div>
+    </div>
+
+    <h2>访问习惯与提醒</h2>
+    <p>因为网站内容持续更新，建议在浏览器中为其建立一个书签文件夹，或者直接记住地址。日常使用时注意以下几点：</p>
+    <ul style="margin-left: 1.5rem; color: #1d5554; margin-bottom: 1.2rem;">
+      <li>部分外部链接跳转后请留意返回方式。</li>
+      <li>移动端页面同样适配，可正常阅读列表与正文。</li>
+      <li>若遇到加载缓慢，可尝试刷新或稍后重试。</li>
+    </ul>
+
+    <div class="quote-block">
+      <p>“找到可信的信息节点，比追逐每一条消息更重要。把时间花在结构清晰的页面上，阅读体验会稳定许多。”</p>
+      <cite>——《信息浏览笔记》· 2025</cite>
+    </div>
+
+    <h2>场景举例：日常浏览与查阅</h2>
+    <p>假设你最近关注某款游戏的近期动态，可以直接进入 <a href="https://chinanews-igame.com">爱游戏</a> 站内搜索或滚动信息流。不需要注册就能浏览大部分内容，这一点对临时查阅比较友好。另外，部分文章末尾会附带相关阅读，可以顺藤摸瓜扩展信息面。</p>
+
+    <div class="visit-sentence">
+      🔍 想获取最新游戏资讯或回顾专题内容，随时可前往 <a href="https://chinanews-igame.com">爱游戏</a> 页面浏览。
+    </div>
+
+    <div class="faq-mini">
+      <h2 style="font-size: 1.3rem; margin-top: 0;">常见问题摘要</h2>
+      <details>
+        <summary>站内文章大概多久更新一次？</summary>
+        <p>更新节奏不是固定的，通常工作日会有数篇新内容，周末也可能有专题整理。建议间隔一两天访问即可看到变化。</p>
+      </details>
+      <details>
+        <summary>移动端阅读和电脑端差别大吗？</summary>
+        <p>核心内容一致。移动端卡片与列表做了响应适配，浏览体验流畅。部分表格或长列表在手机上会自动折行。</p>
+      </details>
+      <details>
+        <summary>是否需要安装额外软件？</summary>
+        <p>不需要。直接通过浏览器打开 <a href="https://chinanews-igame.com">爱游戏</a> 即可，无需下载或注册。所有内容均基于网页呈现。</p>
+      </details>
+    </div>
+
+    <div class="footer-note">
+      <span>本页为介绍性指南 · 内容仅供参考 · 具体以实际网站为准</span>
+    </div>
+  </div>
+</body>
+</html>
